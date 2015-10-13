@@ -1,0 +1,20 @@
+{
+  "name": "VoteNow",
+  "version": "0.0.0",
+  "homepage": "https://github.com/gwenf/votenow",
+  "authors": [
+    "gwenf <gwenfaraday@gmail.com>"
+  ],
+  "description": "",
+  "main": "server.js",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "normalize-css": "normalize.css#~3.0.3"
+  },
+  "install": {
+    "path": "client/libraries"
+  }
+}

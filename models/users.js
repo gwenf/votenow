@@ -1,3 +1,5 @@
+//file for creating new users/signing up
+
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -7,8 +9,7 @@ var bcrypt = require('bcrypt'),
     SALT_WORK_FACTOR = 10;
 
 // create a schema
-var userSchema = new Schema({
-  name: String,
+var UserSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   polls: Number
@@ -36,9 +37,16 @@ UserSchema.pre('save', function(next) {
     });
 });
 
+UserSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
+
 // the schema is useless so far
 // we need to create a model using it
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', UserSchema);
 
 // make this available to our users in our Node applications
 module.exports = User;
