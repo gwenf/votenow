@@ -1,10 +1,17 @@
 //page that displays when a user is logged in
 
-doctype html
-html(ng-app='myApp')
-  include ../partials/header.jade
-	
-  body
-    h1 Here is the main body
-		
-		include ../partials/footer.jade
+extends base
+
+block vars
+  - var title = 'Dashboard'
+
+block body
+  h1 Dashboard
+  p.
+    Welcome to your dashboard! You are now logged in.
+
+  h2 User Information
+  p First Name: #{user.firstName}
+  p Last Name:  #{user.lastName}
+  p Email:      #{user.email}
+  p Data:       #{user.data}

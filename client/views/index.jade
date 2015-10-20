@@ -1,10 +1,16 @@
 // home page for application
 
-doctype html
-html(ng-app='myApp')
-  include ../partials/header.jade
+extends base
+
+block vars
+	- var title = 'Home'
+
+block body
+
+	.container
+		h1 Here is the main body
+			p Welcome to VoteNow.  Please <a href="register"> register</a> or <a href="login">login</a> to continue.
+
+	include ../partials/footer.jade
+
 	
-  body
-    h1 Here is the main body
-		
-		include ../partials/footer.jade
