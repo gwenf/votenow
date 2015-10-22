@@ -1,3 +1,11 @@
 .glyphicon .padLeft {
 	margin-left: 5px !important;
 }
+
+.center-block {
+	text-align: center;
+}
+
+.footer li a {
+	text-align: center;
+}

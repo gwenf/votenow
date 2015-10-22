@@ -10,10 +10,12 @@ var mongoose = require('mongoose');
 
 app.set('view engine', 'jade');
 app.set('views', path.resolve(__dirname,'client','views'));
+app.locals.pretty = true;
 
 //app.use(express.static(path.resolve(__dirname, 'client')));
 
-//app.use(bodyParser.urlencoded({extended: true}));
+//middleware - allows access to the body of the http request
+app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json());
 //app.get("/api/v1",require("./routes/api"));
 
@@ -23,6 +25,10 @@ app.get('/', function (req, res) {
 
 app.get('/register', function(req, res){
 	res.render('register');
+});
+
+app.post('/register', function(req, res){
+	res.json(req.body);
 });
 
 app.get('/login', function(req, res){

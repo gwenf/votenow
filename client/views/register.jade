@@ -1,27 +1,30 @@
 extends base
 
 block vars
-  - var title = 'Register'
+	- var title = 'Register'
 
 block body
-  h1 Create an Account
-  form(method="post")
-    input(type="hidden", name="_csrf", value=csrfToken)
+	h1(style="font-family:Georgia,serif; padding: 25px;") Create an Account
+	form(method="post", role="form", style="width:90%; margin: 5px auto;", class="form-horizontal")
+	
+		div.form-group
+			label(for="fName") First Name:
+			input(type="text", name="firstName", required=true, class="form-control", id="fName")
+			br
 
-    span First Name:
-    input(type="text", name="firstName", required=true)
-    br
+		div.form-group
+			label(for="lName") Last Name:
+			input(type="text", name="lastName", required=true, class="form-control", id="lName")
+			br
 
-    span Last Name:
-    input(type="text", name="lastName", required=true)
-    br
+		div.form-group
+			label(for="email") Email:
+			input(type="email", name="email", required=true, class="form-control", id="email")
+			br
 
-    span Email:
-    input(type="email", name="email", required=true)
-    br
+		div.form-group
+			label(for="password") Password:
+			input(type="password", name="password", required=true, class="form-control", id="password")
+			br
 
-    span Password:
-    input(type="password", name="password", required=true)
-    br
-
-    input(type="submit")
+		input(type="submit", class="btn btn-primary")
