@@ -6,7 +6,8 @@ block vars
 block body
 	h1(style="font-family:Georgia,serif; padding: 25px;") Create an Account
 	form(method="post", role="form", style="width:90%; margin: 5px auto;", class="form-horizontal")
-	
+
+		input(type='hidden', name='_csrf', value=csrfToken)
 		div.form-group
 			label(for="fName") First Name:
 			input(type="text", name="firstName", required=true, class="form-control", id="fName")

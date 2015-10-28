@@ -10,7 +10,8 @@ block body
 		p ERROR: #{error}
 
 	form(method="post", role="form", style="width:90%; margin: 5px auto;", class="form-horizontal")
-		
+
+		input(type='hidden', name='_csrf', value=csrfToken)
 		div.form-group
 			label(for="email") Email:
 			input(type="email", name="email", required=true, class="form-control", id="email")
