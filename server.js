@@ -145,6 +145,14 @@ app.get('/userPage', requireLogin, function(req, res){
 	res.render('userPage');
 });
 
+app.get('/polls', function(req, res){
+	res.render('polls');
+});
+
+app.get('/createPoll', function(req, res){
+	res.render('createPoll');
+});
+
 app.get('/logout', function(req, res){
 	req.session.reset();
 	res.redirect('/');

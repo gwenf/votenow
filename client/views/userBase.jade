@@ -1,0 +1,19 @@
+block vars
+doctype html
+html(ng-app='myApp')
+    head
+        include ../partials/header.jade
+        title VoteNow | #{title}
+    body
+        nav.navbar.navbar-default
+            div.container-fluid
+                .navbar-header
+                    a.navbar-brand(href='/') VoteNow
+                ul.nav.navbar-nav.pull-right
+                    li
+                        a(href='settings') Settings
+                            span.glyphicon.glyphicon-edit
+                    li
+                        a(href='logout') Logout
+                            span.glyphicon.glyphicon-user
+        block body

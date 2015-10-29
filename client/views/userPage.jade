@@ -1,16 +1,14 @@
 //page that displays when a user is logged in
 
-extends base
+extends userBase
 
 block vars
 	- var title = 'Dashboard'
 
 block body
-	h1 Dashboard
-	p. Welcome to your dashboard! You are now logged in.
+	.text-center.letter-style(style='padding-top: 30px;')
+		h1 #{user.firstName}'s Dashboard
+		p. Welcome! You are now logged in.
 
-	h2 User Information
-	p First Name: #{user.firstName}
-	p Last Name:  #{user.lastName}
-	p Email:      #{user.email}
-	p Data:       #{user.data}
+		input(type='button', class='btn btn-primary', onClick="parent.location='createPoll'", value='Create Poll')
+		input(type='button', class='btn btn-primary', onClick="parent.location='createPoll'", value='View Polls')

@@ -9,13 +9,11 @@ html(ng-app='myApp')
 			div.container-fluid
 				.navbar-header
 					a.navbar-brand(href='/') VoteNow
-					ul.nav.navbar-nav.navbar-right
-						li
-							a(href='register') Sign Up
-								span.glyphicon.glyphicon-user
-						li
-							a(href='login') Login
-								span.glyphicon.glyphicon-log-in
+				ul.nav.navbar-nav.pull-right
+					li
+						a(href='register') Sign Up
+							span.glyphicon.glyphicon-user
+					li
+						a(href='login') Login
+							span.glyphicon.glyphicon-log-in
 		block body
-		
-		include ../partials/footer.jade
