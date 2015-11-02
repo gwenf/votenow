@@ -6,14 +6,33 @@
 	text-align: center;
 }
 
-.footer li a {
-	text-align: center;
+.footer {
+	margin-top: 250px !important;
 }
 
-.footer {
-	margin-top: 100px !important;
+.footer .h4 {
+	padding: 25px;
 }
 
 .letter-style::first-letter {
 	text-transform: uppercase;
+}
+
+.main-container {
+	padding: 45px;
+	background: cornflowerblue;
+	width: 100%;
+}
+
+.larger-heading {
+	font-size: 3.7em;
+}
+
+.main-container h2 a {
+	color: white;
+}
+
+.main-column span {
+	font-size: 5em;
+	margin-top: 25px;
 }

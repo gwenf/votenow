@@ -7,8 +7,20 @@ block vars
 
 block body
 
-	.container(style="padding: 45px;")
-		h1 Here is the main body
-			p Welcome to VoteNow.  Please <a href="register"> register</a> or <a href="login">login</a> to continue.
+	.container.main-container.center-block
+		h1.larger-heading Welcome to VoteNow.
+		h2 Please <a href="register"> register</a> or <a href="login">login</a> to continue.
+	.col-sm-4.main-column.center-block
+		span.glyphicon.glyphicon-edit
+		h3 Create
+		p Ask anything and add options
+	.col-sm-4.main-column.center-block
+		span.glyphicon.glyphicon-refresh
+		h3 Update
+		p Live updates on polling results
+	.col-sm-4.main-column.center-block
+		span.glyphicon.glyphicon-share
+		h3 Share
+		p Easily share on Social Media
 
 	include ../partials/footer.jade

@@ -10,7 +10,15 @@ block body
             br
         div.form-group
             label(for="responses") Choose Response Options:
-            input(type="text", name="response", class="form-control", id="responses")
-            br
-            input(type="submit", class='btn btn-primary', value='Add')
+            .input-group
+                input(type="text", name="response", class="form-control", id="responses")
+                span.input-group-btn
+                    input(type="submit", class='btn btn-primary', value='Add')
         input(type="submit", class='btn btn-primary', value='Create Poll')
+
+
+        //<div class="input-group">
+             <input type="text" class="form-control">
+             <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+             </span>

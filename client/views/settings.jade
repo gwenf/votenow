@@ -1,0 +1,14 @@
+extends userBase
+block vars
+    - var title = 'Settings'
+block body
+    form(method="post", role="form", style="width:90%; margin: 5px auto;", class="form-horizontal")
+        input(type='hidden', name='_csrf', value=csrfToken)
+        h1.center-block Change your Password
+        div.form-group
+            label(for="oldPswd") Old Password:
+            input(type="password", name="oldPswd", required=true, class="form-control", id="oldPswd")
+        div.form-group
+            label(for="newPswd") New Password:
+            input(type="password", name="newPswd", class="form-control", id="newPwsd")
+        input(type="submit", class='btn btn-primary', value='Save')

@@ -40,6 +40,9 @@ app.use(sessions({
 	httpOnly: true //doesn't let the brower's javascript access cookies ever!
 }));
 
+//routing for static files//
+app.use(express.static(__dirname + '/client'));
+
 //GLOBAL MIDDLEWARE
 //all middleware functions take in these threee arguments
 app.use(function(req, res, next){
@@ -151,6 +154,10 @@ app.get('/polls', function(req, res){
 
 app.get('/createPoll', function(req, res){
 	res.render('createPoll');
+});
+
+app.get('/settings', function(req, res){
+	res.render('settings');
 });
 
 app.get('/logout', function(req, res){
