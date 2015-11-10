@@ -2,24 +2,25 @@ extends userBase
 block vars
     - var title = 'Login'
 block body
-    h1.love love love
-    div(ng-controller='ChoiceCtrl')
+    h1.love love love {{2+2}}
+    div(ng-controller='choiceCtrl')
         form(method="post", role="form", style="width:90%; margin: 5px auto;", class="form-horizontal")
             input(type='hidden', name='_csrf', value=csrfToken)
             div.form-group
                 label(for="question") Ask your question:
                 input(type="text", name="question", required=true, class="form-control", id="question", placeholder='Which team will win the super bowl this year...?')
                 br
-            ul.list-group
-                li.list-group-item(ng-repeat="choice in choices")
-                    span {{ 2+2 }}
             div.form-group
-                label(for="responses") Choose Response Options:
+                label(for="responses") Enter Response Option:
                 .input-group
                     input(type="text", name="response", class="form-control", id="responses", ng-model='choiceBody')
                     span.input-group-btn
                         input(type="submit", class='btn btn-primary', value='Add', ng-click='addChoice()')
+            ul.list-group
+                li.list-group-item(ng-repeat="choice in choices")
+                    span {{ choice.body }}
             input(type="submit", class='btn btn-primary', value='Create Poll')
+
 
 
         //<div class="input-group">

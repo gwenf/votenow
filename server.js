@@ -43,6 +43,7 @@ app.use(sessions({
 //routing for static files//
 app.use(express.static(__dirname + '/client'));
 
+
 //GLOBAL MIDDLEWARE
 //all middleware functions take in these threee arguments
 app.use(function(req, res, next){

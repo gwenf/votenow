@@ -13,7 +13,8 @@
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
     "normalize-css": "normalize.css#~3.0.3",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "angular-ui-router": "ui-router#~0.2.15"
   },
   "install": {
     "path": "client/libraries"
