@@ -1,6 +1,6 @@
 
 
-    var pollApp = angular.module('myApp', ['ui.router']);
+    var pollApp = angular.module('myApp', []);
 
     pollApp.controller('choiceCtrl', ['$scope', function ($scope) {
         $scope.choices = []; //just for testing

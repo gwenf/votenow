@@ -6,6 +6,8 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sessions = require('client-sessions');//mozilla library for cookies, etc...
 
+var fs = require('fs');
+
 var path = require('path');
 var mongoose = require('mongoose');
 
@@ -20,6 +22,7 @@ var User = mongoose.model('user', new Schema({
 	password: String
 }));
 
+
 //database
 mongoose.connect('mongodb://localhost/votenow');
 
@@ -27,10 +30,24 @@ app.set('view engine', 'jade');
 app.set('views', path.resolve(__dirname,'client','views'));
 app.locals.pretty = true;
 
+app.get('/polls', function(req,res){
+	mongoose.model('poll').find(function(err, polls){
+			res.send(polls);
+		}
+	)
+});
+
+//load all files in the models directory
+fs.readdirSync(__dirname + '/models').forEach(function(filename){
+	if(~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+})
+
 //app.use(express.static(path.resolve(__dirname, 'client')));
 
 //middleware - allows access to the body of the http request
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(bodyParser.json());
 
 app.use(sessions({
 	cookieName: 'session',
@@ -114,6 +131,7 @@ app.post('/register', function(req, res){
 				error='That email is already taken. Please try another one.';
 			}
 			res.render('register', {error: error});
+			console.error(error);
 		} else {
 			//if user registration (.save function) works they should be directed to their user page
 			console.log('Saved... Redirecting to Dashboard!!');
@@ -141,6 +159,13 @@ app.post('/login', function(req, res){
 				res.render('login', {error: 'Invalid email or password.'});
 			}
 		}
+	});
+});
+
+app.post('/createPoll', function(req, res){
+	var poll = new Poll({
+		question: req.body.question,
+		choices: req.body.choices
 	});
 });
 
